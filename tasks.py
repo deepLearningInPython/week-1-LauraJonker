@@ -32,9 +32,8 @@ def step(num):
 # Your code here:
 # -----------------------------------------------
 def ReLu(input_array, cutoff = 0):
-    for ar in range(len(input_array)):
-        if input_array[ar] < cutoff:
-            input_array[ar] = cutoff
+    input_array = np.array(input_array)
+    input_array[input_array < cutoff] = cutoff
     return input_array
            
 # -----------------------------------------------
@@ -50,7 +49,8 @@ def ReLu(input_array, cutoff = 0):
 # -----------------------------------------------
 
 def neural_net_layer(two_dim_array, one_dim_array):
-    multiplied_array = np.multiply(two_dim_array, one_dim_array)
+    print()
+    multiplied_array = np.matmul(two_dim_array, one_dim_array)
     multiplied_array_transf = ReLu(multiplied_array)
     return multiplied_array_transf
 
